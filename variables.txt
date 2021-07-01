@@ -1,0 +1,73 @@
+Comando utilizado:get-variable
+para unicamente variables del sistema=> dir env:
+Name                           Value
+----                           -----
+?                              True
+^                              get-variable
+$                              get-variable
+adminSqlLogin                  cloudadmin
+args                           {}
+ConfirmPreference              High
+databaseName                   bus-db
+DebugPreference                SilentlyContinue
+EnabledExperimentalFeatures    {}
+Error                          {The term 'get' is not recognized as a name of a cmdlet, function, script file, or executa…
+ErrorActionPreference          Continue
+ErrorView                      ConciseView
+ExecutionContext               System.Management.Automation.EngineIntrinsics
+false                          False
+FormatEnumerationLimit         4
+GitMissing                     False
+GitPromptScriptBlock           …
+GitPromptSettings              @{DefaultForegroundColor=; BeforeText= [; BeforeForegroundColor=Yellow; BeforeBackgroundCo…
+GitStatus                      @{Index=System.Object[]; Working=System.Object[]; BehindBy=0; GitDir=D:\Az-204\prac\.git; …
+GitTabSettings                 @{AllCommands=False}
+HOME                           C:\Users\billy
+Host                           System.Management.Automation.Internal.Host.InternalHost
+InformationPreference          SilentlyContinue
+input                          System.Collections.ArrayList+ArrayListEnumeratorSimple
+ipAddress                      90.71.78.30
+IsCoreCLR                      True
+IsLinux                        False
+IsMacOS                        False
+IsWindows                      True
+LASTEXITCODE                   0
+location                       francecentral
+MaximumHistoryCount            4096
+MyInvocation                   System.Management.Automation.InvocationInfo
+NestedPromptLevel              0
+null                           
+OutputEncoding                 System.Text.UTF8Encoding
+password                       P455w0rd.1234
+PID                            15272
+PROFILE                        D:\OFF\billyclasstime\OneDrive - Billy Class Time\Documents\PowerShell\Microsoft.PowerShel…
+ProgressPreference             Continue
+PSBoundParameters              {}
+PSColor                        {File, Match, Service}
+PSCommandPath                  
+PSCulture                      en-US
+PSDefaultParameterValues       {Get-AzResourceGroupDeploymentWhatIfResult:ResourceGroupName, Export-AzResourceGroup:Resou…
+PSEdition                      Core
+PSEmailServer                  
+PSHOME                         C:\Program Files\PowerShell\7
+PSScriptRoot                   
+PSSessionApplicationName       wsman
+PSSessionConfigurationName     http://schemas.microsoft.com/powershell/Microsoft.PowerShell
+PSSessionOption                System.Management.Automation.Remoting.PSSessionOption
+PSUICulture                    en-US
+PSVersionTable                 {PSVersion, PSEdition, GitCommitId, OS…}
+PWD                            D:\Az-204\prac\pracfinal
+resourceGroup                  Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResourceGroup
+resourceGroupName              lavelozRG
+serverName                     bus-serverjun2021bmvb
+ShellId                        Microsoft.PowerShell
+StackTrace                        at System.Management.Automation.CommandDiscovery.LookupCommandInfo(String commandName, …
+ThemeSettings                  @{CurrentHostname=CLASSTIME; PromptSymbols=System.Collections.Hashtable; GitSymbols=System…
+TortoiseGitSettings            @{TortoiseGitCommands=System.Collections.Hashtable; TortoiseGitPath=C:\Program Files\Torto…
+true                           True
+uniqueID                       jun2021bmvb
+VcsPromptStatuses              {…
+VerbosePreference              SilentlyContinue
+WarningPreference              Continue
+WhatIfPreference               False
+
