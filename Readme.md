@@ -58,7 +58,7 @@ Ajustar la Logic App con los datos del correo electrónico
 
 Ajustar el correo del destinatario (Todavia no tenemos una pagina web para que el usuario entre su correo)
 
-<img src="images/setinguplogicapp02.png" style="zoom:150%;" />
+![](images/setinguplogicapp02.png)
 
 
 
@@ -74,7 +74,7 @@ En la Azure Function actualizamos el valor en la variable de entorno **LogicAppU
 https://prod-15.francecentral.logic.azure.com:443/workflows/747cc7a3b866416b9ab411f09f725eea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=oCHe5ExVCU8-zpo-XcQUBJipVhhBvPfn9IjrWK37CTo
 ```
 
-<img src="images/setinguplogicapp04.png" style="zoom:150%;" />
+![](images/setinguplogicapp04.png)
 
 
 
@@ -84,7 +84,7 @@ Y en el monitor de la Azure Function ya aparece un auto bus entrando a la geoval
 
 
 
-<img src="images/setinguplogicapp05.png" style="zoom: 150%;" />
+![](images/setinguplogicapp05.png)
 
 
 
