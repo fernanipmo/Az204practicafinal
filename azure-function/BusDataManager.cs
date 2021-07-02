@@ -68,16 +68,17 @@ namespace GetBusData
 
         private async Task<GTFS.RealTime.Feed> GetRealTimeFeed()
         {
+            //"https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions_enhanced.json"
             var response = await _client.GetAsync(GTFS_RT_FEED);
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             var feed = JsonConvert.DeserializeObject<GTFS.RealTime.Feed>(responseString);
-
             return feed;
         }
 
         private async Task<List<int>> GetMonitoredRoutes()
         {
+            //"Server=tcp:bus-serverjun2021bmvb.database.windows.net,1433;Initial Catalog=bus-db;Persist Security Info=False;User ID=cloudadmin;Password=P455w0rd.1234;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
             using var conn = new SqlConnection(AZURE_CONN_STRING);
             var queryResult = await conn.QuerySingleOrDefaultAsync<string>("web.GetMonitoredRoutes", commandType: CommandType.StoredProcedure);
             var result = JArray.Parse(queryResult);
