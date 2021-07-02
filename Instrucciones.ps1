@@ -14,7 +14,7 @@ $resourceGroupName = "lavelozRG"
 New-AzResourceGroup -Name $resourceGroupName -Location "francecentral"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 # $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
-$uniqueID = "jun2021bmvb"
+$uniqueID = "jun2021[yourname]"
 $location = $resourceGroup.Location
 # The logical server name has to be unique in the system
 $serverName = "bus-server$($uniqueID)"
@@ -60,15 +60,31 @@ $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGr
 $location = $resourceGroup.Location
 # Azure function name
 #$azureFunctionName = $("azfunc$($uniqueID)")
-$azureFunctionName = "azfunclavelozbmvb2021"
+$azureFunctionName = "azfunclaveloz[yourname]"
 # Get storage account name
 $storageAccountName = (Get-AzStorageAccount -ResourceGroup $resourceGroupName).StorageAccountName
 $storageAccountName
 
 #$storageAccountName = $("storageaccount$($uniqueID)")
-$storageAccountName = "azsalavelozbmvb2021"
+$storageAccountName = "azsalaveloz[yourname]"
 $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -Location $location -SkuName Standard_GRS
 
 $functionApp = New-AzFunctionApp -Name $azureFunctionName `
     -ResourceGroupName $resourceGroupName -StorageAccount $storageAccountName `
     -FunctionsVersion 3 -RuntimeVersion 3 -Runtime dotnet -Location $location
+
+
+# Ejercicio 3 - Creación de Azure Logic App
+# Get the repository name
+$appRepository = "https://github.com/[yourgithubaccount]/Az204practicafinal.git"
+#$appRepository = Read-Host "Enter your GitHub repository URL (e.g. https://github.com/[username]/serverless-full-stack-apps-azure-sql):"
+
+# Clone the repo - note this asks for the token
+#$cloneRepository = git clone $appRepository
+# Get subscription ID 
+$subId = [Regex]::Matches($resourceGroup.ResourceId, "(\/subscriptions\/)+(.*\/)+(.*\/)").Groups[2].Value
+$subId = $subId.Substring(0,$subId.Length-1)
+# Deploy logic app
+az deployment group create --name DeployResources --resource-group $resourceGroupName `
+    ` --template-file ./deployment-scripts/template.json `
+    --parameters subscription_id=$subId location=$location

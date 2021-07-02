@@ -6,7 +6,9 @@ OpenStreetMap WKT Playground
 
 [Draw features example (clydedacruz.github.io)](https://clydedacruz.github.io/openstreetmap-wkt-playground/)
 
+Imagen de la geovalla que se ha dado de alta en Azure para monitorizar que autobuses entran en ella.
 
+![](images/goefence01.png)
 
 ### SQLPackage
 
@@ -37,4 +39,58 @@ Server=tcp:bus-serverjun2021bmvb.database.windows.net,1433;Initial Catalog=bus-d
 ```
 Ejercicio: Automatización de actualizaciones con Acciones de GitHub
 ```
+
+
+
+# Implementando Azure Logic App
+
+La Azure Logic App se desplegará desde un ARM, localizado en ./deployment-scripts/template.json
+
+![](images/templatejsonazurelogicapp.png)
+
+
+
+Ajustar la Logic App con los datos del correo electrónico
+
+![](images/setinguplogicapp01.png)
+
+
+
+Ajustar el correo del destinatario (Todavia no tenemos una pagina web para que el usuario entre su correo)
+
+<img src="images/setinguplogicapp02.png" style="zoom:150%;" />
+
+
+
+Enlazamos la Logic App a la Azure Function, copiando la URL donde la logic App esta esperando la llamado por HTTP Post para iniciar su ejecución:
+
+![](images/setinguplogicapp03.png)
+
+
+
+En la Azure Function actualizamos el valor en la variable de entorno **LogicAppUrl**
+
+```
+https://prod-15.francecentral.logic.azure.com:443/workflows/747cc7a3b866416b9ab411f09f725eea/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=oCHe5ExVCU8-zpo-XcQUBJipVhhBvPfn9IjrWK37CTo
+```
+
+<img src="images/setinguplogicapp04.png" style="zoom:150%;" />
+
+
+
+**!Esperamos un rato!**
+
+Y en el monitor de la Azure Function ya aparece un auto bus entrando a la geovalla. ¡Ya podemos salir a la parada y esperarlo! :)
+
+
+
+<img src="images/setinguplogicapp05.png" style="zoom: 150%;" />
+
+
+
+Funcionando nuestra Logic App ya recibimos el correo con la notificación de que debemos salir a la parada.  :)
+
+<img src="images/emailreceivedalertingnextbus.jpeg" style="zoom:50%;" />
+
+
 
