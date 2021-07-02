@@ -1,3 +1,5 @@
+# Ejercicio 1 BASE DE DATOS
+
 (Invoke-WebRequest -Uri "https://ipinfo.io/ip").Content
 
 # Collect password 
@@ -50,3 +52,23 @@ $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
     -Edition "GeneralPurpose" -Vcore 4 -ComputeGeneration "Gen5" `
     -ComputeModel Serverless -MinimumCapacity 0.5
 Write-Host "Database deployed."
+
+# Ejercicio 2 Azure Function
+$resourceGroupName = "lavelozRG"
+$resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
+#$uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
+$location = $resourceGroup.Location
+# Azure function name
+#$azureFunctionName = $("azfunc$($uniqueID)")
+$azureFunctionName = "azfunclavelozbmvb2021"
+# Get storage account name
+$storageAccountName = (Get-AzStorageAccount -ResourceGroup $resourceGroupName).StorageAccountName
+$storageAccountName
+
+#$storageAccountName = $("storageaccount$($uniqueID)")
+$storageAccountName = "azsalavelozbmvb2021"
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -Location $location -SkuName Standard_GRS
+
+$functionApp = New-AzFunctionApp -Name $azureFunctionName `
+    -ResourceGroupName $resourceGroupName -StorageAccount $storageAccountName `
+    -FunctionsVersion 3 -RuntimeVersion 3 -Runtime dotnet -Location $location
