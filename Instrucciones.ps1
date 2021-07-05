@@ -14,7 +14,7 @@ $resourceGroupName = "lavelozRG"
 New-AzResourceGroup -Name $resourceGroupName -Location "francecentral"
 $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGroupName
 # $uniqueID = Get-Random -Minimum 100000 -Maximum 1000000
-$uniqueID = "jun2021[yourname]"
+$uniqueID = "jun2021fpm"
 $location = $resourceGroup.Location
 # The logical server name has to be unique in the system
 $serverName = "bus-server$($uniqueID)"
