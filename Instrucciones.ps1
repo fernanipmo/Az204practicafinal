@@ -60,13 +60,13 @@ $resourceGroup = Get-AzResourceGroup | Where ResourceGroupName -like $resourceGr
 $location = $resourceGroup.Location
 # Azure function name
 #$azureFunctionName = $("azfunc$($uniqueID)")
-$azureFunctionName = "azfunclaveloz[yourname]"
+$azureFunctionName = "azfunclavelozfpm"
 # Get storage account name
 $storageAccountName = (Get-AzStorageAccount -ResourceGroup $resourceGroupName).StorageAccountName
 $storageAccountName
 
 #$storageAccountName = $("storageaccount$($uniqueID)")
-$storageAccountName = "azsalaveloz[yourname]"
+$storageAccountName = "azsalavelozfpm"
 $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -Location $location -SkuName Standard_GRS
 
 $functionApp = New-AzFunctionApp -Name $azureFunctionName `
@@ -76,7 +76,7 @@ $functionApp = New-AzFunctionApp -Name $azureFunctionName `
 
 # Ejercicio 3 - Creación de Azure Logic App
 # Get the repository name
-$appRepository = "https://github.com/[yourgithubaccount]/Az204practicafinal.git"
+$appRepository = "https://github.com/fernanipmo/Az204practicafinal.git"
 #$appRepository = Read-Host "Enter your GitHub repository URL (e.g. https://github.com/[username]/serverless-full-stack-apps-azure-sql):"
 
 # Clone the repo - note this asks for the token
